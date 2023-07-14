@@ -13,22 +13,4 @@
     <name>OHRIMamba API</name>
     <description>API project for OHRIMamba</description>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.openmrs.ohri</groupId>
-            <artifactId>ohri-mamba-core</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-        </plugins>
-
-    </build>
-
 </project>

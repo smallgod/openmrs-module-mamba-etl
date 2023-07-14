@@ -24,6 +24,10 @@ public class OHRIMambaActivator extends BaseModuleActivator {
 	
 	private Log log = LogFactory.getLog(this.getClass());
 	
+	public OHRIMambaActivator() {
+		super();
+	}
+	
 	/**
 	 * @see #started()
 	 */

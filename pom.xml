@@ -34,9 +34,10 @@
         <dependencies>
 
             <dependency>
-                <groupId>org.openmrs.ohri</groupId>
-                <artifactId>ohri-mamba-core</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <groupId>org.openmrs.module</groupId>
+                <artifactId>ohrimamba-core</artifactId>
+                <version>${ohriMambaCoreVersion}</version>
+                <type>pom</type>
             </dependency>
 
             <dependency>
@@ -85,6 +86,12 @@
             </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>ohrimamba-core-api</artifactId>
+            <version>${ohriMambaCoreVersion}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -110,10 +117,8 @@
                             <configuration>
                                 <artifactItems>
                                     <artifactItem>
-                                        <groupId>org.openmrs.ohri</groupId>
-                                        <artifactId>ohri-mamba-core</artifactId>
-                                        <version>1.0.0-SNAPSHOT</version>
-                                        <type>jar</type>
+                                        <groupId>org.openmrs.module</groupId>
+                                        <artifactId>ohrimamba-core-api</artifactId>
                                         <outputDirectory>${project.build.directory}/mamba-etl</outputDirectory>
                                         <includes>_core/**</includes>
                                     </artifactItem>
@@ -208,7 +213,7 @@
                                     <!-- the Engine compiler script -->
                                     <argument>compile.sh</argument>
                                     <!-- Database the created stored procedures will run on -->
-                                    <argument>-d openmrs_working</argument>
+                                    <argument>-d openmrs_dev</argument>
                                     <!-- File with a list of all files with stored procedures -->
                                     <!-- Remove this argument after automating core to auto-read this -->
                                     <argument>-s ../../database/mysql/sp_makefile</argument>
@@ -261,6 +266,7 @@
             </plugins>
 
         </pluginManagement>
+
     </build>
 
     <repositories>
@@ -298,6 +304,7 @@
         <legacyUIomodVersion>1.8.2</legacyUIomodVersion>
         <junit5Version>5.7.2</junit5Version>
         <junit4Version>4.13.1</junit4Version>
+        <ohriMambaCoreVersion>1.0.0-SNAPSHOT</ohriMambaCoreVersion>
     </properties>
 
     <distributionManagement>

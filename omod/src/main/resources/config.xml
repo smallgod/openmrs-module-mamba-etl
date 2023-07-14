@@ -14,12 +14,14 @@
 
     <require_version>${openmrsPlatformVersion}</require_version>
 
+    <require_modules>
+        <require_module>org.openmrs.module.ohrimambacore</require_module>
+    </require_modules>
+
     <aware_of_modules>
         <aware_of_module>org.openmrs.module.legacyui</aware_of_module>
     </aware_of_modules>
 
-    <!-- Internationalization -->
-    <!-- All message codes should start with @MODULE_ID@.* -->
     <messages>
         <lang>en</lang>
         <file>messages.properties</file>
