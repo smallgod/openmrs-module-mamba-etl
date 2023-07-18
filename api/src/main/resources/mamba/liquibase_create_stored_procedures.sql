@@ -608,8 +608,7 @@ BEGIN
     PREPARE prepared_statement FROM @generate_report;
     EXECUTE prepared_statement;
     DEALLOCATE PREPARE prepared_statement;
-END;
-//
+END~
 
 
 
@@ -1717,6 +1716,8 @@ CREATE PROCEDURE sp_mamba_dim_report_definition_create()
 BEGIN
 -- $BEGIN
 
+DROP TABLE IF EXISTS mamba_dim_report_definition; -- TODO: REMOVE this once the insert is automated'
+
 CREATE TABLE mamba_dim_report_definition
 (
     id                    INT          NOT NULL AUTO_INCREMENT,
@@ -1730,32 +1731,6 @@ CREATE TABLE mamba_dim_report_definition
 
 CREATE INDEX mamba_dim_report_definition_report_id_index
     ON mamba_dim_report_definition (report_id);
-
--- $END
-END~
-
-
-        
--- ---------------------------------------------------------------------------------------------
--- ----------------------  sp_mamba_dim_report_definition_insert  ----------------------------
--- ---------------------------------------------------------------------------------------------
-
-
-DROP PROCEDURE IF EXISTS sp_mamba_dim_report_definition_insert;
-
-~
-CREATE PROCEDURE sp_mamba_dim_report_definition_insert()
-BEGIN
--- $BEGIN
--- TODO: put this in config file
-
-INSERT INTO mamba_dim_report_definition (report_id,
-                                         report_procedure_name,
-                                         report_name)
-VALUES ('mother_hiv_status', 'sp_mamba_pmtct_mother_hiv_status_query', 'PMTCT Mother HIV Status'),
-       ('total_deliveries', 'sp_mamba_pmtct_total_deliveries_query', 'PMTCT Deliveries Total'),
-       ('hiv_exposed_infants', 'sp_mamba_pmtct_hiv_exposed_infants_query', 'PMTCT HIV Exposed Infants Total'),
-       ('total_pregnant_women', 'sp_mamba_pmtct_pregnant_women_query', 'PMTCT Pregnant Women Total');
 
 -- $END
 END~
@@ -1812,7 +1787,7 @@ BEGIN
 -- $BEGIN
 
 CALL sp_mamba_dim_report_definition_create();
-CALL sp_mamba_dim_report_definition_insert();
+-- CALL sp_mamba_dim_report_definition_insert();
 CALL sp_mamba_dim_report_definition_update();
 
 -- $END
