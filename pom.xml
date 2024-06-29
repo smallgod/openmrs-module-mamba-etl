@@ -131,6 +131,12 @@
                 <type>jar</type>
             </dependency>
 
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>4.28.0</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -269,7 +275,7 @@
                                     <argument>compile.sh</argument>
 
                                     <!-- The source database (OpenMRS database) -->
-                                    <argument>-d openmrs</argument>
+                                    <argument>-d kibagabaga</argument>
 
                                     <!-- The target or analysis Database where the ETL data is stored -->
                                     <argument>-a analysis_db</argument>
