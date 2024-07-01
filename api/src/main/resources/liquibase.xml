@@ -11,8 +11,10 @@
             Installs/deploys all the required MambaETL Stored procedures and functions
         </comment>
 
-        <sqlFile splitStatements="true" stripComments="true" endDelimiter="~"
-                 path="mamba/liquibase_create_stored_procedures.sql"/>
+        <sqlFile path="mamba/liquibase_create_stored_procedures.sql"
+                 splitStatements="true"
+                 stripComments="true"
+                 endDelimiter="~"/>
 
     </changeSet>
 
